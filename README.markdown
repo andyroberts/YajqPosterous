@@ -4,7 +4,7 @@
 
 ## Description
 
-YajqTwitter is a jQuery plugin for retrieving posts via the official Posterous API.
+YajqPosterous is a jQuery plugin for retrieving posts via the official Posterous API.
 The objective is to create a simple blog feed widget displaying snippets of posts to embed in webpages.
 And with CSS it's possible customize the appearance too.
 
