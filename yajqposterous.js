@@ -24,13 +24,13 @@
 		    + ":" + zeropad(date.getUTCSeconds()) + "Z";
 		};
 
-		/* Credit: John Resig (http://ejohn.org/blog/javascript-pretty-date/) */ 
+		/* Credit: John Resig (http://ejohn.org/blog/javascript-pretty-date/); Updated by AR for longer date ranges*/ 
 		var prettyDate = function(time) {
 			var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
 			diff = (((new Date()).getTime() - date.getTime()) / 1000),
 			day_diff = Math.floor(diff / 86400);
 			
-			if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+			if ( isNaN(day_diff) || day_diff < 0 )
 				return;
 			
 			return day_diff == 0 && (
@@ -41,9 +41,9 @@
 				diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
 				day_diff == 1 && "Yesterday" ||
 				day_diff < 7 && day_diff + " days ago" ||
-				day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
+				day_diff < 85 && Math.ceil( day_diff / 7 ) + " weeks ago" ||
+				"many moons ago";
 		}
-		
 
 		var parseFunctions = {
 			'regular': function parseRegular(post) {
@@ -53,7 +53,7 @@
 			
 				postString += "<div class=\"post-body\">" + bodyString + "</div>";
 				return postString;
-			},
+			}
 		};
 
 
